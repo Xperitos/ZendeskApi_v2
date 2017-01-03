@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\ZendeskWebException.cs" />
     <Compile Include="Extensions\RequestExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="HelpCenterApi.cs" />
@@ -307,6 +308,7 @@
     <Compile Include="Requests\Users.cs" />
     <Compile Include="Requests\Views.cs" />
     <Compile Include="Requests\Voice.cs" />
+    <Compile Include="Responses\ErrorResponse.cs" />
     <Compile Include="Serialization\BaseJsonConverter.cs" />
     <Compile Include="Serialization\TargetJsonConverter.cs" />
     <Compile Include="Serialization\SingleOrArrayConverter.cs" />
