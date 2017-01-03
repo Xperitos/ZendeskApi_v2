@@ -369,13 +369,13 @@ namespace ZendeskApi_v2
                         data = formKey.IsNullOrWhiteSpace() ? zenFile.FileData : await GetFromDataAsync(zenFile, req, formKey);
                     }
 
-                    using (Stream requestStream = await req.GetRequestStreamAsync())
+                    using (Stream requestStream = await Task<Stream>.Factory.FromAsync(req.BeginGetRequestStream, req.EndGetRequestStream, req))
                     {
                         await requestStream.WriteAsync(data, 0, data.Length);
                     }
                 }
 
-                using (HttpWebResponse response = (HttpWebResponse)await req.GetResponseAsync())
+                using (HttpWebResponse response = (HttpWebResponse)await Task<WebResponse>.Factory.FromAsync(req.BeginGetResponse, req.EndGetResponse, req))
                 {
                     string content = string.Empty;
                     using (Stream responseStream = response.GetResponseStream())
