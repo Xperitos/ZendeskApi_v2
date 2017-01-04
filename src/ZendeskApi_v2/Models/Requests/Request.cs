@@ -32,6 +32,9 @@ namespace ZendeskApi_v2.Models.Requests
         [JsonProperty("organization_id")]
         public long? OrganizationId { get; set; }
 
+        [JsonProperty("assignee_id")]
+        public long? AssigneeId { get; set; }
+
         [JsonProperty("via")]
         public Via Via { get; set; }        
 
