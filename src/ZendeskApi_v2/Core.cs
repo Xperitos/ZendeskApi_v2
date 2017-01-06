@@ -609,7 +609,7 @@ namespace ZendeskApi_v2
                 var errorResponse = JsonConvert.DeserializeObject<ErrorResponse>(error, jsonSettings);
                 wException.Error = errorResponse;
             }
-            catch (JsonReaderException )
+            catch (Exception e) when(e is JsonReaderException || e is JsonSerializationException)
             {
                 // Ignored
             }
